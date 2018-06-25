@@ -12,6 +12,7 @@ public class MenuScript : MonoBehaviour {
 
     public GameObject QuestionsAndAnswersPanel;
     public GameObject MainPanel;
+    public GameObject ConfirmationPanel;
 
     List<object> qList;
     QuestionList currentQuestion;
@@ -28,11 +29,13 @@ public class MenuScript : MonoBehaviour {
         if (!QuestionsAndAnswersPanel.GetComponent<Animator>().enabled)
         {
             QuestionsAndAnswersPanel.GetComponent<Animator>().enabled = true;
-            MainPanel.gameObject.SetActive(false);
+            MainPanel.gameObject.SetActive(true);
             QuestionsAndAnswersPanel.gameObject.SetActive(true);
+            ConfirmationPanel.gameObject.SetActive(false);
         }
         else
         {
+            ConfirmationPanel.gameObject.SetActive(true);
             MainPanel.gameObject.SetActive(true);
             QuestionsAndAnswersPanel.gameObject.SetActive(true);
             QuestionsAndAnswersPanel.GetComponent<Animator>().SetTrigger("In");
